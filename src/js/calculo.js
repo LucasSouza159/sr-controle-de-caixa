@@ -40,7 +40,7 @@ function atualizaTabela() {
 form.addEventListener("submit", function(event) {
   event.preventDefault();
 
-  const valor = parseFloat(document.getElementById("valor").value);
+  const valor = parseFloat(document.getElementById("valor").value.replace(",", "."));
   const formaPagamento = document.querySelector('input[name="pagamento"]:checked').value;
 
   switch (formaPagamento) {
