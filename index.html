@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fluxo de Caixa S&R Delivery</title>
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../dist/output.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-gray-900 text-white">
+    <div class="container mx-auto mt-5 md:mt-10 p-5 md:p-0">
+      <!-- <h1 class="text-center text-4xl font-bold mb-5 text-green-600">S&R Hortifruti.</h1> -->
+      <div class="flex justify-center">
+        <img src="../src/img/logo.png" alt="Logo da empresa" class="w-28">
+      </div>
+
+      <!-- Formulário de entrada de dados -->
+      <form id="formDados" class="mb-5">
+        <label class="block mb-2 font-bold text-gray-500">Digite o valor:</label>
+        <input type="number" id="valor" name="valor" placeholder="Digite o valor" class="w-full mb-3 px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" required />
+
+        <label class="block mb-2 font-bold text-gray-500">Forma de pagamento:</label>
+        <div class="mb-5 flex">
+          <label class="inline-flex items-center">
+            <input type="radio" class="form-radio" name="pagamento" value="dinheiro" checked />
+            <span class="ml-2 text-lg md:text-2xl">Dinheiro</span>
+          </label>
+          <label class="inline-flex items-center ml-6">
+            <input type="radio" class="form-radio" name="pagamento" value="cartao" />
+            <span class="ml-2 text-lg md:text-2xl">Cartão</span>
+          </label>
+          <label class="inline-flex items-center ml-6">
+            <input type="radio" class="form-radio" name="pagamento" value="pix" />
+            <span class="ml-2 text-lg md:text-2xl">PIX</span>
+          </label>
+          <label class="inline-flex items-center ml-6">
+            <input type="radio" class="form-radio" name="pagamento" value="despesa" />
+            <span class="ml-2 text-lg md:text-2xl">Despesas</span>
+          </label>
+        </div>
+
+        <div class="flex justify-center md:justify-start">
+          <button type="submit" id="salvar" class="bg-blue-500 hover:bg-blue-700 text-white text-xl md:text-2xl font-bold py-2 px-4 rounded">Salvar Dados</button>
+          <button type="button" id="resetar" class="bg-red-500 hover:bg-red-700 text-white text-xl md:text-2xl font-bold py-2 px-4 rounded ml-5">Resetar Dados</button>
+        </div>
+        <div class="mt-5 text-2xl">Valor total: <span id="total" class="font-bold"></span></div>
+      </form>
+
+      <!-- Tabela de exibição dos dados -->
+  <table class="w-full mt-8">
+    <thead>
+      <tr class="bg-white text-gray-800">
+        <th class="py-2 px-4 text-left">Forma de pagamento</th>
+        <th class="py-2 px-4 text-left border-l-2 border-gray-700">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-xl">
+        <td class="py-2 px-4 border-2 border-gray-700 font-bold">Dinheiro</td>
+        <td class="py-2 px-4 border-2 border-gray-700 text-green-600" id="dinheiro-total">R$ 0,00</td>
+      </tr>
+      <tr class="text-xl">
+        <td class="py-2 px-4 border-2 border-gray-700 font-bold">Pix</td>
+        <td class="py-2 px-4 border-2 border-gray-700 text-green-600" id="pix-total">R$ 0,00</td>
+      </tr>
+      <tr class="text-xl">
+        <td class="py-2 px-4 border-2 border-gray-700 font-bold">Cartão</td>
+        <td class="py-2 px-4 border-2 border-gray-700 text-green-600" id="cartao-total">R$ 0,00</td>
+      </tr>
+      <tr class="text-xl">
+        <td class="py-2 px-4 border-2 border-gray-700 font-bold">Despesas</td>
+        <td class="py-2 px-4 border-2 border-gray-700 text-red-600" id="despesas-total">R$ 0,00</td>
+      </tr>
+    </tbody>
+  </table>
+    <script src="./src/js/calculo.js"></script>
+  </body>
+</html>
