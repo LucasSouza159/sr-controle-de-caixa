@@ -65,13 +65,31 @@ form.addEventListener("submit", function(event) {
 });
 
 // Adiciona o evento de clique ao botão de resetar
+// Adiciona o evento de clique ao botão de resetar
 resetarBtn.addEventListener("click", function() {
-  dinheiroTotal = 0;
-  pixTotal = 0;
-  cartaoTotal = 0;
-  despesasTotal = 0;
+  Swal.fire({
+    title: 'Você tem certeza?',
+    text: "Essa ação irá apagar todos os valores salvos!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sim, resetar!',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      dinheiroTotal = 0;
+      pixTotal = 0;
+      cartaoTotal = 0;
+      despesasTotal = 0;
 
-  atualizaLocalStorage();
-  atualizaTabela();
+      atualizaLocalStorage();
+      atualizaTabela();
+      Swal.fire(
+        'Valores resetados!',
+        '',
+        'success'
+      )
+    }
+  })
 });
-
