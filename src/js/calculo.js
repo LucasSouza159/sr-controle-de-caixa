@@ -64,7 +64,25 @@ form.addEventListener("submit", function(event) {
   atualizaTabela();
 });
 
-// Adiciona o evento de clique ao botão de resetar
+// Download de beckup em TXT
+function downloadTxtFile() {
+    // Coletar dados
+    let data = [`Dinheiro ==> ${dinheiroTotal}\nCartão ==> ${cartaoTotal}\nPix ==> ${pixTotal}\nDespesas ==> ${despesasTotal}\n\nValor Total ==> ${totalValor.textContent}`];
+    
+    // Criar objeto Blob
+    let blob = new Blob([data], {type: "text/plain;charset=utf-8"});
+    
+    // Criar link de download
+    let link = document.createElement("a");
+    link.download = "arquivo.txt";
+    link.href = window.URL.createObjectURL(blob);
+    link.style.display = "none";
+    document.body.appendChild(link);
+    
+    // Clicar no link para iniciar o download
+    link.click();
+  }
+
 // Adiciona o evento de clique ao botão de resetar
 resetarBtn.addEventListener("click", function() {
   Swal.fire({
@@ -78,6 +96,7 @@ resetarBtn.addEventListener("click", function() {
     cancelButtonText: 'Cancelar'
   }).then((result) => {
     if (result.isConfirmed) {
+      downloadTxtFile();
       dinheiroTotal = 0;
       pixTotal = 0;
       cartaoTotal = 0;
