@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fluxo de Caixa S&R Delivery</title>
-    <link rel="shortcut icon" href="./src/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./dist/output.css">
     <link
       rel="stylesheet"
@@ -21,7 +22,7 @@
     <div class="container mx-auto mt-5 md:mt-10 p-5 md:p-0">
       <!-- <h1 class="text-center text-4xl font-bold mb-5 text-green-600">S&R Hortifruti.</h1> -->
       <div class="flex justify-center">
-        <img src="./src/img/logo.png" alt="Logo da empresa" class="w-28">
+        <img src="./img/logo.png" alt="Logo da empresa" class="w-28">
       </div>
 
       <!-- Formulário de entrada de dados -->
@@ -33,19 +34,19 @@
         <div class="mb-5 flex">
           <label class="inline-flex items-center">
             <input type="radio" class="form-radio" name="pagamento" value="dinheiro" checked />
-            <span class="ml-2 md:text-2xl">Dinheiro</span>
+            <span class="ml-2 md:text-2xl text-green-500">Dinheiro</span>
           </label>
           <label class="inline-flex items-center ml-6">
             <input type="radio" class="form-radio" name="pagamento" value="cartao" />
-            <span class="ml-2 md:text-2xl">Cartão</span>
+            <span class="ml-2 md:text-2xl text-orange-500">Cartão</span>
           </label>
           <label class="inline-flex items-center ml-6">
             <input type="radio" class="form-radio" name="pagamento" value="pix" />
-            <span class="ml-2 md:text-2xl">PIX</span>
+            <span class="ml-2 md:text-2xl text-blue-500">PIX</span>
           </label>
           <label class="inline-flex items-center ml-6">
             <input type="radio" class="form-radio" name="pagamento" value="despesa" />
-            <span class="ml-2 md:text-2xl">Despesas</span>
+            <span class="ml-2 md:text-2xl text-red-500">Despesas</span>
           </label>
         </div>
 
@@ -54,6 +55,9 @@
           <button type="button" id="resetar" class="bg-red-500 hover:bg-red-700 text-white text-xl md:text-2xl font-bold py-2 px-4 rounded ml-5">Resetar Dados</button>
         </div>
         <div class="mt-5 text-2xl">Valor total: <span id="total" class="font-bold"></span></div>
+        <div id="toggleEye" class="cursor-pointer">
+          <i id="eyeIcon" class="far fa-eye"></i>
+        </div>
       </form>
 
       <!-- Tabela de exibição dos dados -->
@@ -66,24 +70,26 @@
     </thead>
     <tbody>
       <tr class="text-xl">
-        <td class="py-2 px-4 border-2 border-gray-700 font-bold">Dinheiro</td>
+        <td class="py-2 px-4 border-2 border-gray-700 font-bold text-green-500">Dinheiro</td>
         <td class="py-2 px-4 border-2 border-gray-700 text-green-600" id="dinheiro-total">R$ 0,00</td>
       </tr>
       <tr class="text-xl">
-        <td class="py-2 px-4 border-2 border-gray-700 font-bold">Pix</td>
-        <td class="py-2 px-4 border-2 border-gray-700 text-green-600" id="pix-total">R$ 0,00</td>
+        <td class="py-2 px-4 border-2 border-gray-700 font-bold text-orange-500">Cartão</td>
+        <td class="py-2 px-4 border-2 border-gray-700 text-orange-500" id="cartao-total">R$ 0,00</td>
       </tr>
       <tr class="text-xl">
-        <td class="py-2 px-4 border-2 border-gray-700 font-bold">Cartão</td>
-        <td class="py-2 px-4 border-2 border-gray-700 text-green-600" id="cartao-total">R$ 0,00</td>
+        <td class="py-2 px-4 border-2 border-gray-700 font-bold text-blue-500">Pix</td>
+        <td class="py-2 px-4 border-2 border-gray-700 text-blue-500" id="pix-total">R$ 0,00</td>
       </tr>
+      
       <tr class="text-xl">
-        <td class="py-2 px-4 border-2 border-gray-700 font-bold">Despesas</td>
+        <td class="py-2 px-4 border-2 border-gray-700 font-bold text-red-500">Despesas</td>
         <td class="py-2 px-4 border-2 border-gray-700 text-red-600" id="despesas-total">R$ 0,00</td>
       </tr>
     </tbody>
   </table>
-    <script src="./src/js/calculo.js"></script>
+    <script src="./js/calculo.js"></script>
+    <script src="./js/exportar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
   </body>
 </html>
