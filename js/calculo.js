@@ -57,6 +57,11 @@ form.addEventListener("submit", function (event) {
     'input[name="pagamento"]:checked'
   ).value;
 
+if(isNaN(valor)){
+  alert("Você digitou uma letra. Digite um valor numérico válido.");
+  return;
+}
+  
   switch (formaPagamento) {
     case "dinheiro":
       dinheiroTotal = parseFloat(dinheiroTotal) + valor;
